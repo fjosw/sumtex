@@ -2,6 +2,22 @@ import re
 
 
 def process_latex_file(path, split_at="section"):
+    """Extract sections from latex file.
+
+    This function takes in the path to a latex file and processes it. The function reads the file, removes all the latex commands, comments, and align environment. Then, it splits the file at the given 'split_at' command (default = "section") and returns a dictionary with the title of the split as the key and the text as the value.
+
+    Parameters:
+    -----------
+    path (str):
+        path to the latex file
+    split_at (str):
+        latex command at which the text should be split (default = "section")
+
+    Returns:
+    --------
+    sections (dict):
+        dictionary with the split titles as keys and the text as values
+    """
     with open(path, 'r') as file:
         raw_data = file.read()
 
