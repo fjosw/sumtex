@@ -2,7 +2,11 @@ import sys
 from . import latex
 from . import requests
 
-if __name__ == '__main__':
+
+def main():
+    if len(sys.argv) != 2:
+        raise Exception("Please provide a latex file as argument to sumtex.")
+
     sections = latex.process_latex_file(sys.argv[1])
 
     my_prompts = [{"context": "",
@@ -19,3 +23,6 @@ if __name__ == '__main__':
         for prompt in my_prompts:
             print(f"{prompt['context']}")
             print(requests.openai_request(prompt["prompt"], sec_text, prompt["temperature"]), "\n")
+
+if __name__ == '__main__':
+    main()

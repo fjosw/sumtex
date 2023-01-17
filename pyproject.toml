@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -22,3 +22,6 @@ dynamic = ["version"]
 
 [tool.setuptools.dynamic]
 version = {attr = "sumtex.__version__"}
+
+[project.scripts]
+sumtex = "sumtex.__main__:main"
