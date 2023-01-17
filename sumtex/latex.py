@@ -27,11 +27,13 @@ def process_latex_file(path, split_at="section"):
 
     tmp_data = re.sub(r'\\cite\{([^}]*)\}', '', tmp_data)
     tmp_data = re.sub(r'\\label\{([^}]*)\}', '', tmp_data)
+    tmp_data = re.sub(r'\\ref\{([^}]*)\}', '', tmp_data)
+    tmp_data = re.sub(r'\\cref\{([^}]*)\}', '', tmp_data)
     tmp_data = re.sub(r'\\begin{align}([^}]*)\\end{align}', '', tmp_data, flags=re.DOTALL)
     tmp_data = re.sub(r'\\begin{pyin}([^}]*)\\end{pyin}', '', tmp_data, flags=re.DOTALL)
     tmp_data = re.sub(r'^%.*\n?', '', tmp_data, flags=re.MULTILINE)
 
-    for format_name in ["texttt", "textbf", "textit"]:
+    for format_name in ["texttt", "textbf", "textit", "mathrm"]:
         tmp_data = re.sub(rf'\\{format_name}{{([^}}]*)}}', '\\1', tmp_data)
 
     section_starts = [i for i in range(len(tmp_data)) if tmp_data.startswith(rf"\{split_at}{{", i)]
