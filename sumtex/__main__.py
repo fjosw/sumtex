@@ -10,11 +10,11 @@ def main():
     sections = latex.process_latex_file(sys.argv[1])
 
     my_prompts = [{"context": "",
-                   "prompt": "Give the main topic of the following text, the three most important points and the audience and rate the understandability on a scale from 0 to 10.",
+                   "prompt": "Give the main topic of the following text, the three most important points and the audience.",
                    "temperature": 0.1},
                   {"context": "Title suggestions:",
-                   "prompt": "Generate an objective and a catchy title for the following text.",
-                   "temperature": 0.8}]  # Add additional prompts here.
+                   "prompt": "Generate an objective title and a catchy title for the following text.",
+                   "temperature": 0.3}]  # Add additional prompts here.
 
     for sec_name, sec_text in sections.items():
         sec_name_string = f"Section: {sec_name}"
