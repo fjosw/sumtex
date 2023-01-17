@@ -30,6 +30,7 @@ def process_latex_file(path, split_at="section"):
     tmp_data = re.sub(r'\\ref\{([^}]*)\}', '', tmp_data)
     tmp_data = re.sub(r'\\cref\{([^}]*)\}', '', tmp_data)
     tmp_data = re.sub(r'\\begin{align}([^}]*)\\end{align}', '', tmp_data, flags=re.DOTALL)
+    tmp_data = re.sub(r'\\begin{figure}([^}]*)\\end{figure}', '', tmp_data, flags=re.DOTALL)
     tmp_data = re.sub(r'\\begin{pyin}([^}]*)\\end{pyin}', '', tmp_data, flags=re.DOTALL)
     tmp_data = re.sub(r'^%.*\n?', '', tmp_data, flags=re.MULTILINE)
 
