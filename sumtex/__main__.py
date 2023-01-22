@@ -24,5 +24,6 @@ def main():
             print(f"{prompt['context']}")
             print(requests.openai_request(prompt["prompt"], sec_text, prompt["temperature"]), "\n")
 
+
 if __name__ == '__main__':
     main()
